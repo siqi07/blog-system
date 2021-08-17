@@ -9,8 +9,8 @@
                     <button>搜索</button>
                 </form>
             </li>
-            <li><router-link to="/">写作中心</router-link></li>
-            <li><router-link v-bind:to="'userpath'">个人中心</router-link></li>
+            <li><router-link :to="{path: userPath + '/write_center'}">写作中心</router-link></li>
+            <li><router-link :to="userPath">个人中心</router-link></li>
             <li><router-link to="login">登录注册</router-link></li>
         </ul>
     </nav>
@@ -21,12 +21,10 @@ export default {
     el: 'navigation',
     data() {
         return {
-            userpath: '',
+            userPath: '/user/123',
+            userId: '123'
         }
-    },
-    created() {
-        this.userpath = '/user/' + this.userId; 
-    }    
+    }  
 }
 </script>
 

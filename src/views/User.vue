@@ -1,5 +1,5 @@
 <template>
     <div>
-        注册页面
+        个人中心页面
     </div>
 </template>
