@@ -2,19 +2,34 @@
     <nav>
         <ul>
             <li><div class="sys-photo"><img ref="#" alt="图片"></div></li>
-            <li><a href="#">首页</a></li>
+            <li><router-link to="/" >首页</router-link></li>
             <li>
                 <form class="search">
                     <input type="text">
                     <button>搜索</button>
                 </form>
             </li>
-            <li><a href="#">写作中心</a></li>
-            <li><a href="#">个人中心</a></li>
-            <li><a href="#">登录注册</a></li>
+            <li><router-link to="/">写作中心</router-link></li>
+            <li><router-link v-bind:to="'userpath'">个人中心</router-link></li>
+            <li><router-link to="login">登录注册</router-link></li>
         </ul>
     </nav>
 </template>
+
+<script>
+export default {
+    el: 'navigation',
+    data() {
+        return {
+            userpath: '',
+        }
+    },
+    created() {
+        this.userpath = '/user/' + this.userId; 
+    }    
+}
+</script>
+
 <style scoped>
 ul {
     list-style: none;
