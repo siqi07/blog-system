@@ -1,40 +1,43 @@
 <template>
-  <div style="padding: 0; height: 100%; margin: 200px 0 0;">
-    <el-row :gutter="12">
-      <el-col :span="8"></el-col>
-    <el-col :span="8">
-      <el-card shadow="hover">
-        <template #header>
-          <div class="card-header">
-            <span style="text-align: center; display: block"><b>登 录</b></span>
-          </div>
-        </template>
-        <el-form
-            :model="ruleForm"
-            status-icon
-            :rules="rules"
-            ref="ruleForm"
-            label-width="80px"
-            class="demo-ruleForm"
-        >
-          <el-form-item label="账号" prop="user_id">
-            <el-input type="text" v-model="ruleForm.user_id" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="密码" prop="password">
-            <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="submitForm('ruleForm')">提 交</el-button>
-            <el-button @click="resetForm('ruleForm')">重 置</el-button>
-            <el-link style="float: right">没有账号？点击注册</el-link>
-          </el-form-item>
-        </el-form>
-      </el-card>
-    </el-col>
-      <el-col :span="8"></el-col>
-    </el-row>
-<!--    <el-card style="display: flex; justify-content: center; align-items: center; margin-top: 100px">-->
-<!--    </el-card>-->
+  <div style="padding: 0; height: 100%;">
+    <!--    <el-row :gutter="12">-->
+    <!--      <el-col :span="8"></el-col>-->
+    <!--    <el-col :span="8">-->
+    <el-card shadow="hover" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+      <template #header>
+        <div class="card-header">
+          <span style="text-align: center; display: block"><b>登 录</b></span>
+        </div>
+      </template>
+      <el-form
+          :model="ruleForm"
+          status-icon
+          :rules="rules"
+          ref="ruleForm"
+          label-width="80px"
+          class="demo-ruleForm"
+      >
+        <el-form-item label="账号" prop="user_id">
+          <el-input type="text" v-model="ruleForm.user_id" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="密码" prop="password">
+          <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm')"
+          style="width: 300px">提交</el-button>
+        </el-form-item>
+        <el-form-item>
+          <el-button @click="resetForm('ruleForm')">重置</el-button>
+          <el-link style="float: right">没有账号？点击注册</el-link>
+        </el-form-item>
+      </el-form>
+    </el-card>
+    <!--    </el-col>-->
+    <!--      <el-col :span="8"></el-col>-->
+    <!--    </el-row>-->
+    <!--    <el-card style="display: flex; justify-content: center; align-items: center; margin-top: 100px">-->
+    <!--    </el-card>-->
   </div>
 
 
@@ -112,31 +115,31 @@ export default {
         checkPass: '',
         age: '',
         user_name: '',
-        nick_name:'',
-        e_mail:'',
+        nick_name: '',
+        e_mail: '',
         user_id: ''
       },
       rules: {
         pass: [
-          { validator: validatePass, trigger: 'blur' }
+          {validator: validatePass, trigger: 'blur'}
         ],
         checkPass: [
-          { validator: validatePass2, trigger: 'blur' }
+          {validator: validatePass2, trigger: 'blur'}
         ],
         age: [
-          { validator: checkAge, trigger: 'blur' }
+          {validator: checkAge, trigger: 'blur'}
         ],
         user_name: [
-          { validator: checkUname, trigger: 'blur'}
+          {validator: checkUname, trigger: 'blur'}
         ],
         nick_name: [
-          { validator: checkNname, trigger: 'blur'}
+          {validator: checkNname, trigger: 'blur'}
         ],
         e_mail: [
-          { validator: checkEmail, trigger: 'blur'}
+          {validator: checkEmail, trigger: 'blur'}
         ],
         user_id: [
-          { validator: checkUid, trigger: 'blur'}
+          {validator: checkUid, trigger: 'blur'}
         ]
       }
     };
@@ -159,5 +162,4 @@ export default {
 }
 </script>
 <style scoped>
-
 </style>

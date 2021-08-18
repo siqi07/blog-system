@@ -1,9 +1,9 @@
 <template>
-  <div style="padding: 0; height: 100%; margin: 100px 0 0;">
-    <el-row :gutter="12">
-      <el-col :span="8"></el-col>
-      <el-col :span="8">
-        <el-card shadow="hover">
+  <div style="height: 100%;">
+<!--    <el-row :gutter="12">-->
+<!--      <el-col :span="8"></el-col>-->
+<!--      <el-col :span="8">-->
+        <el-card shadow="hover" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);">
           <template #header>
             <div class="card-header">
               <span style="text-align: center; display: block"><b>注 册</b></span>
@@ -14,36 +14,39 @@
               status-icon
               :rules="rules"
               ref="ruleForm"
-              label-width="80px"
+              label-width="100px"
               class="demo-ruleForm"
           >
             <el-form-item label="真实姓名" prop="user_name">
-              <el-input type="text" v-model="ruleForm.user_name" autocomplete="off"></el-input>
+              <el-input type="text" v-model="ruleForm.user_name" autocomplete="off" style="width: 400px"></el-input>
             </el-form-item>
             <el-form-item label="昵称" prop="nick_name">
-              <el-input type="text" v-model="ruleForm.nick_name" autocomplete="off"></el-input>
+              <el-input type="text" v-model="ruleForm.nick_name" autocomplete="off" style="width: 400px"></el-input>
             </el-form-item>
             <el-form-item label="邮箱" prop="e_mail">
-              <el-input type="email" v-model="ruleForm.e_mail" autocomplete="off"></el-input>
+              <el-input type="email" v-model="ruleForm.e_mail" autocomplete="off" style="width: 400px"></el-input>
             </el-form-item>
             <el-form-item label="密码" prop="password">
-              <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+              <el-input type="password" v-model="ruleForm.pass" autocomplete="off" style="width: 400px"></el-input>
             </el-form-item>
             <el-form-item label="确认密码" prop="checkPass">
-              <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+              <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" style="width: 400px"></el-input>
             </el-form-item>
             <el-form-item label="年龄" prop="age">
-              <el-input v-model.number="ruleForm.age"></el-input>
+              <el-input v-model.number="ruleForm.age" style="width: 400px"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm')">提 交</el-button>
               <el-button @click="resetForm('ruleForm')" style="float: right">重 置</el-button>
             </el-form-item>
+            <el-form-item>
+
+            </el-form-item>
           </el-form>
         </el-card>
-      </el-col>
-      <el-col :span="8"></el-col>
-    </el-row>
+<!--      </el-col>-->
+<!--      <el-col :span="8"></el-col>-->
+<!--    </el-row>-->
     <!--    <el-card style="display: flex; justify-content: center; align-items: center; margin-top: 100px">-->
     <!--    </el-card>-->
   </div>
