@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import User from '../views/User.vue'
 import WriteCenter from '../views/WriteCenter.vue'
+import ElTest from '../views/element-plus-test.vue'
 
 const routes = [
   {
@@ -30,6 +31,20 @@ const routes = [
     path: '/user/:user_id/write_center',
     name: 'WRITECENTER',
     component: WriteCenter
+  },
+  {
+    path: '/eltest',
+    name: 'ELTEST',
+    component: ElTest
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/NotFind')
+  },
+  {
+    path: '/:pathMatch(.*)',
+    redirect: '/404'
   }
   
 ]
