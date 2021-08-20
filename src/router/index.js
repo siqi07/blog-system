@@ -50,11 +50,11 @@ const routes = [
     path: '/:pathMatch(.*)',
     redirect: '/404'
   },
-  {
-    path: '/admin',
-    name: 'ADMIN',
-    component: () => import('@/views/Admin')
-  }
+  // {
+  //   path: '/admin',
+  //   name: 'ADMIN',
+  //   component: () => import('@/views/Admin')
+  // }
   
 ]
 
