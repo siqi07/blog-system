@@ -1,19 +1,17 @@
 <template>
-    <nav>
-        <ul>
-            <li><div class="sys-photo"><img ref="#" alt="图片"></div></li>
-            <li><router-link to="/" >首页</router-link></li>
-            <li>
-                <form class="search">
-                    <input type="text">
-                    <button>搜索</button>
-                </form>
-            </li>
-            <li><router-link :to="{path: userPath + '/write_center'}">写作中心</router-link></li>
-            <li><router-link :to="userPath">个人中心</router-link></li>
-            <li><router-link to="login">登录注册</router-link></li>
-        </ul>
-    </nav>
+    <el-row :gutter="0">
+        <el-col :span="3" :offset="1"><div class="sys-photo"><img class="logo" src="../assets/test.jpg" alt="图片"></div></el-col>
+        <el-col :span="3" :xs="3" :offset="1"><router-link to="/" >首页</router-link></el-col>
+        <el-col :span="6" :xs="0" :offset="0">
+            <form class="search">
+                <input type="text">
+                <button>搜索</button>
+            </form>
+        </el-col>
+        <el-col :span="3" :xs="5" :offset="1"><router-link :to="{path: userPath + '/write_center'}">写作中心</router-link></el-col>
+        <el-col :span="3" :xs="5" :offset="0"><router-link :to="userPath">个人中心</router-link></el-col>
+        <el-col :span="3" :xs="5" :offset="0"><router-link to="login">登录/注册</router-link></el-col>
+    </el-row>
 </template>
 
 <script>
@@ -29,34 +27,28 @@ export default {
 </script>
 
 <style scoped>
-ul {
-    list-style: none;
+.el-row {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    border-color: black;
+    align-items: center;
 }
-li {
-    list-style: none;
+a {
+    text-decoration: none;
+    font-size: 20px;
 }
-
-.sys-photo {
+.logo {
+    /* max-width: 100%;
+    max-height: 60px; */
     width: 60px;
     height: 60px;
     border: 1px;
-    border-style: solid;
+    border-style: solid; 
     border-radius: 50%;
 }
-
-.search {
-    line-height: 60px;
+@media screen and (max-width: 880px) {
+    a {
+        text-decoration: none;
+        font-size: 16px;
+    }
 }
 
-li a {
-    text-decoration: none;
-    text-align: center;
-    line-height: 60px;
-    font-size: 24px;
-    
-}
 </style>

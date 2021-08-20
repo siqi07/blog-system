@@ -1,25 +1,24 @@
 <template>
-    <div>
-        <ul>
-            <li><a href="#">aa</a></li>
-            <li><a href="#">aa</a></li>
-            <li><a href="#">aa</a></li>
-            <li><a href="#">aa</a></li>
-            <li><a href="#">aa</a></li>
-        </ul>
-    </div>
+    <el-card class="box-card" shadow="never">
+        <div v-for="o in 4" :key="o" class="text item">
+            <el-link href="javascript:void(0);" :underline="false" @click="handleSelect">{{ o }}</el-link>
+            <el-divider></el-divider>
+        </div>
+
+    </el-card>
 </template>
 
+<script>
+export default {
+    methods: {
+        handleSelect(key){
+            console.log(key)
+        }
+    }
+}
+</script>
 <style scoped>
-    ul li {
-        list-style: none;
-    }
-    li {
-        line-height: 40px;
+    .el-row {
         text-align: center;
-    }
-
-    li>a{
-        text-decoration: none;
     }
 </style>

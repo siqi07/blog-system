@@ -1,32 +1,31 @@
 <template>
-    <div>
-        <ul class="classify">
-            <li>热门</li><span>|</span>
-            <li>最新</li><span>|</span>
-            <li>关注</li>
-        </ul>
-        <div>
-            <!--使用v-if来显示 -->
-            <template v-if="hotlist">
-                <list-item></list-item>
-            </template>
-            <template v-else-if="latestlist">
-                <list-item></list-item>
-            </template>
-            <template v-else-if="attentionlist">
-                <!-- <div v-for="item in items" key="item"> -->
-                    <list-item>item</list-item>
-                    <list-item>item</list-item>
-                    <list-item>item</list-item>
-                    <list-item>item</list-item>
-                    <list-item>item</list-item>
-                    <list-item>item</list-item>
-                    <list-item>item</list-item>
-                <!-- </div> -->
-                
-            </template>
-        </div>
-    </div>
+    <el-container direction="verical">
+        <el-header height="8%">
+            <!-- Header content -->
+                <el-menu
+                    class="menu"
+                    default-active="1"
+                    mode="horizontal"
+                    @select="handleSelect"
+                    text-color="#ffffff"
+                    active-text-color="#36458a"
+                    background-color="#dddbdb">
+                    <el-menu-item index="hot">热门</el-menu-item>
+                    <el-menu-item index="latest">最新</el-menu-item>
+                    <el-menu-item index="focus">关注</el-menu-item>
+                </el-menu>
+        </el-header>
+        <el-main height="91%">
+            <!-- Main content -->
+            <!-- <keep-alive>
+                <component :is="listName"></component>
+            </keep-alive> -->
+            <list-item></list-item>
+            <list-item></list-item>
+            <list-item></list-item>
+            <list-item></list-item>
+        </el-main> 
+    </el-container>
 </template>
 <script>
 import ListItem from './listitem.vue'
@@ -36,35 +35,27 @@ export default {
     },
     data() {
         return {
-            hotlist: false,
-            latestlist: false,
-            attentionlist: true,
+            listName: 'hot',
             items: [1,2,3,4,5,6]
+        }
+    },
+    methods: {
+        handleSelect(key) {
+            this.listName = key;
         }
     }
 }
 </script>
 
 <style scoped>
-    .classify {
+    .menu {
         display: flex;
-        flex-direction: row;
         justify-content: space-around;
-        height: 40px;
-        border: solid black;
-        border-width: 0px 0px 1px;
+        align-items: center;
+        font-weight: bold;
     }
-
-    .classify>span {
-        line-height: 40px;
+    .el-main {
+        padding: 0;
+        overflow: hidden
     }
-
-    .classify>li {
-        flex: 1;
-        box-sizing: border-box;
-        line-height: 40px;
-        list-style: none;
-        text-align: center;
-    }
-    
 </style>
