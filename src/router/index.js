@@ -13,6 +13,10 @@ const routes = [
     component: Index
   },
   {
+    path: '/index',
+    redirect: '/'
+  },
+  {
     path: '/login',
     name: 'Login',
     component: Login
@@ -45,6 +49,11 @@ const routes = [
   {
     path: '/:pathMatch(.*)',
     redirect: '/404'
+  },
+  {
+    path: '/admin',
+    name: 'ADMIN',
+    component: () => import('@/views/Admin')
   }
   
 ]

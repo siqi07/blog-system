@@ -9,13 +9,15 @@
                         <!-- Header content -->
                         <el-row :gutter="0" class="nav">
                             <el-col :span="2" class="logo">
-                                <el-image :src="logo" fit="cover" :lazy="true">
-                                    <template #error>
-                                        <div class="image-slot">
-                                            <i class="el-icon-picture-outline"></i>
-                                        </div>
-                                    </template>
-                                </el-image>
+                                <el-link href="/index" underline="false">
+                                    <el-image src="../assets/test.jpg" fit="cover" :lazy="true">
+                                        <template #error>
+                                            <div class="image-slot">
+                                                <i class="el-icon-picture-outline"></i>
+                                            </div>
+                                        </template>
+                                    </el-image>
+                                </el-link>
                             </el-col>
                             <el-col :span="4" class="title">
                                 <span>写作中心</span>
@@ -67,15 +69,18 @@
 <script>
 import listItem from '../components/listitem.vue'
 import blogManage from '../components/blogmanage.vue'
-
+import contentData from '../components/contentdata.vue'
+import focusData from '../components/focusdata.vue'
 export default {
     components: {
         listItem,
-        blogManage
+        blogManage,
+        contentData,
+        focusData
     },
     data() {
         return {
-            logo: '/blog-system/src/assets/test.jpg',
+            logo: '../assets/test.jpg',
             menus: [{
                 title: '数据中心',
                 menus: [{
@@ -95,11 +100,11 @@ export default {
                     return;
                     }
                 case '2-1':{
-                    this.mainName = null;
+                    this.mainName = 'contentData';
                     return
                 }
                 case '2-2': {
-                    this.mainName = null;
+                    this.mainName = 'focusData';
                     return
                 }
             }
